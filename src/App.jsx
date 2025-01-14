@@ -1,6 +1,7 @@
 import Footer from './Footer.jsx';
 //import Cards from './Cards.jsx'; 
 import DataFetch from './Fetch.jsx';
+//import CharacterGrid from './Fetch.jsx';
 
 //Font Import
 import '@fontsource/roboto/300.css';
@@ -14,6 +15,7 @@ function App() {
     <> 
     <DataFetch/>
     {/* <Cards/> */}
+    {/* <CharacterGrid/> */}
     <Footer/>
     <div>
       

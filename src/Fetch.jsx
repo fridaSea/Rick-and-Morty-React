@@ -5,6 +5,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+//Grid
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid2';
+import { Container } from '@mui/material';
 
 
 function DataFetch() {
@@ -38,44 +44,124 @@ function DataFetch() {
            
             //setLoading(false); // Laden beenden
             })
-    }, []); // Leeres Array für einmaliges Ausführen
+    }, []) // Leeres Array für einmaliges Ausführen
     
-
     return (
-        <div>
-            <h1>Characters</h1>
-            <div>
-            {data && data.map((data) => (
-             <Card sx={{ maxWidth: 345 }} key={data.id}>
-                 <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        height="140"
-                        image={data.image}
-                        alt={data.name}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                        {data.name} 
-                        </Typography>
-                    </CardContent>
-                 </CardActionArea>
-             </Card>
-            ))}
-        </div>
-            {/* <Cards characters={data} /> Pass the data to the Cards component */}
-            {/* {data && data.map((character) => {
-                return (
-                    <p key={character.id}>
-                    {character.name}
-                    </p>
-                    );  
-            })};     
-            
-            {error && <p>Fehler beim Laden der Daten: {error.message}</p>} */}
-        </div>
-        );
-
+        <Container>
+           <Grid container spacing={3}>
+                {data && data.map((data) => (
+                     <Grid item xs={12} md={4} lg={2} key={data.id}> 
+                        <Card sx={{ maxWidth: 345 }}>
+                            <CardActionArea>
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image={data.image}
+                                    alt={data.name}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="div">
+                                    {data.name} 
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                        </Card>
+                    </Grid>
+                ))}
+            </Grid>
+        </Container>
+    );
 };
 
 export default DataFetch;
+
+
+    //     <div>
+    //        <h1>Characters</h1>
+    //        <div>
+    //        {data && data.map((data) => (
+    //         <Card sx={{ maxWidth: 345 }} key={data.id}>
+    //             <CardActionArea>
+    //                <CardMedia
+    //                    component="img"
+    //                    height="140"
+    //                    image={data.image}
+    //                    alt={data.name}
+    //                />
+    //                <CardContent>
+    //                    <Typography gutterBottom variant="h5" component="div">
+    //                    {data.name} 
+    //                    </Typography>
+    //                </CardContent>
+    //             </CardActionArea>
+    //         </Card>
+    //        ))}
+    //         </div>
+    //    </div>
+
+
+  
+ 
+//  function CharacterGrid(){
+//     return(
+//          <div>
+//             <h1>Characters</h1>
+//             <div>
+//             {data && data.map((data) => (
+//              <Card sx={{ maxWidth: 345 }} key={data.id}>
+//                  <CardActionArea>
+//                     <CardMedia
+//                         component="img"
+//                         height="140"
+//                         image={data.image}
+//                         alt={data.name}
+//                     />
+//                     <CardContent>
+//                         <Typography gutterBottom variant="h5" component="div">
+//                         {data.name} 
+//                         </Typography>
+//                     </CardContent>
+//                  </CardActionArea>
+//              </Card>
+//             ))}
+//              </div>
+//         </div>
+
+        // <div>
+        //     <Grid container>
+        //         <Grid item xs={12} md={4} lg={2}>
+        //         </Grid>
+
+        //         <Grid item xs={12} md={4} lg={2}>
+        //         </Grid>
+        //     </Grid>
+        // </div>
+   
+    // ENDE
+
+    //    <Container>
+    //         {/* <h1>Characters</h1> */}
+
+    //             <Grid container>
+    //             {data && data.map(data) => (
+    //                 <Grid item xs={12} md={4} lg={2}>
+    //                     <Card sx={{ maxWidth: 345 }} key={data.id}></Card>
+    //                     <CardMedia
+    //                         component="img"
+    //                         height="140"
+    //                         image={data.image}
+    //                         alt={data.name}
+    //                     />
+    //                     <CardContent>
+    //                         <Typography gutterBottom variant="h5" component="div">
+    //                         {data.name} 
+    //                         </Typography>
+    //                     </CardContent>
+    //                     </Card>
+    //                 </Grid>
+
+    //             )}
+    //             </Grid>
+    //     </Container>
+//         )
+// }

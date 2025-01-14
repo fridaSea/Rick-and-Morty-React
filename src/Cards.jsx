@@ -38,3 +38,5 @@ function Cards ({characters}) {
 // how to build cards: https://www.youtube.com/watch?v=CgkZ7MvWUAA
 
 export default Cards 
+
+// https://www.youtube.com/watch?v=XmTCeWbVjpM gute Anleitung mithilfe von Pokemon 
