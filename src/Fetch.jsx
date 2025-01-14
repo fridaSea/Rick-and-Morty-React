@@ -1,4 +1,10 @@
 import React, {useEffect, useState} from 'react';
+// Cards
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import CardActionArea from '@mui/material/CardActionArea';
 
 
 function DataFetch() {
@@ -38,7 +44,27 @@ function DataFetch() {
     return (
         <div>
             <h1>Characters</h1>
-            {data && data.map((character) => {
+            <div>
+            {data && data.map((data) => (
+             <Card sx={{ maxWidth: 345 }} key={data.id}>
+                 <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={data.image}
+                        alt={data.name}
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                        {data.name} 
+                        </Typography>
+                    </CardContent>
+                 </CardActionArea>
+             </Card>
+            ))}
+        </div>
+            {/* <Cards characters={data} /> Pass the data to the Cards component */}
+            {/* {data && data.map((character) => {
                 return (
                     <p key={character.id}>
                     {character.name}
@@ -46,7 +72,7 @@ function DataFetch() {
                     );  
             })};     
             
-            {error && <p>Fehler beim Laden der Daten: {error.message}</p>}
+            {error && <p>Fehler beim Laden der Daten: {error.message}</p>} */}
         </div>
         );
 
