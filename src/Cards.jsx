@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import DataFetch from './Fetch.jsx';
+import { makeStyles } from '@material-ui/core/styles';
 
 // Cards
 import Card from '@mui/material/Card';
@@ -14,7 +15,7 @@ function Cards ({characters}) {
     return (
         <div>
             {characters.map((character) => (
-             <Card sx={{ maxWidth: 345 }} key={character.id}>
+             <Card sx={{ maxWidth: 345 }} key={character.id} className='cardStyle'>
                  <CardActionArea>
                     <CardMedia
                         component="img"

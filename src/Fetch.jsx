@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import './App.css'
+
 // Cards
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -46,12 +48,18 @@ function DataFetch() {
             })
     }, []) // Leeres Array für einmaliges Ausführen
     
+   
+    //     color: '#44281d',
+
     return (
         <Container>
            <Grid container spacing={3}>
                 {data && data.map((data) => (
-                     <Grid item xs={12} md={4} lg={2} key={data.id}> 
-                        <Card sx={{ maxWidth: 345 }}>
+                     <Grid item xs={12} md={4} lg={3} key={data.id}> 
+                        <Card sx={{ maxWidth: 345,
+                             marginTop: '10px',
+                             borderRadius: "8px"
+                         }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -60,7 +68,7 @@ function DataFetch() {
                                     alt={data.name}
                                 />
                                 <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
+                                    <Typography gutterBottom variant="h5" component="div" sx={{color:'#e4a788'}}>
                                     {data.name} 
                                     </Typography>
                                 </CardContent>
