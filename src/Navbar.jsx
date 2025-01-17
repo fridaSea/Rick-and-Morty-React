@@ -14,7 +14,11 @@ const Navbar = ({ filter, onSearchChange }) => {
   return (
     <>
       <AppBar position="static" > 
-        <Toolbar>
+        <Toolbar
+        sx={{display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}>
           <Box 
             sx={{ display: 'flex',
                   backgroundColor: '#e0e0e0',
