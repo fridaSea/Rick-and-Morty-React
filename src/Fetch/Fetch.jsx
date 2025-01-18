@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../App';
-import './fetch.css'
+import './fetch.css';
+import CardModals from '../CardModals/CardModals';
 
 
 // Cards
@@ -17,7 +18,9 @@ import Grid from '@mui/material/Grid2';
 import { Button, Container } from '@mui/material';
 //Flip
 import ReactCardFlip from 'react-card-flip';
-
+//Pagination
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 
 function DataFetch( {filter} ) {
     //1. state variables at the top
@@ -73,9 +76,9 @@ function DataFetch( {filter} ) {
                     No results found for "{filter}"
                 </Typography>
             ) : (
-               <Grid container spacing={3}>
+               <Grid container spacing={3} className="GridContainer">
                      {data && filteredData.map((data) => (
-                         <Grid  item xs={12} md={4} lg={3} key={data.id}> 
+                         <Grid  item xs={12} md={4} lg={3} key={data.id} > 
                          <div className='flip-card'>
                             <div className='flip-card-inner'>
                                  <div className='flip-card-front'>
@@ -115,12 +118,10 @@ function DataFetch( {filter} ) {
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
-                                    <Button variant="outlined" size="medium" color="primary" sx={{marginTop:'20px'}}>
+                                    <CardModals data={data}/>
+                                    {/* <Button variant="outlined" size="medium" color="primary" sx={{marginTop:'20px'}}>
                                             More Info
-                                            </Button>
-                                    
-                                        
-                                       
+                                            </Button> */}
                                     </Card>
                                     </div>
                                 

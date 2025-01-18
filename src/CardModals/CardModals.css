@@ -1,0 +1,28 @@
+.Box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400;
+    background-color: #fffcf1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* p: 4; */
+}
+
+#modal-modal-title {
+    color:#e4a788;
+    text-align: center;
+    margin-top: 5px;
+}
+
+#modal-modal-description {
+color: rgb(156, 154, 154);
+}
+
+
+/* .CloseButton {
+    margin-bottom: 5px !important;
+} */

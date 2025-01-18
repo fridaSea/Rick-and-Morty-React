@@ -11,7 +11,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 
 
 
-function Cards ({characters}) {
+function Cards ({data}) {
     return (
         <div>
             {characters.map((character) => (
