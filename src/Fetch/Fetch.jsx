@@ -28,10 +28,18 @@ function DataFetch( {filter} ) {
     // const [loading, setLoading] = useState(true); // Zustand, der anzeigt, ob die daten noch geladen werden
     const [error, setError] = useState(null); // Zusatnd, der Fehler speichert 
     const [isFlipped, setIsFlipped] = useState(false); //Zustand für das Drehen der Karte
+    const [currentPage, setCurrentPage] = useState(1); // Aktuelle Seite
+    const [totalPages, setTotalPages] = useState(0); // Aktuelle Seite
+    const [currentQuery, setCurrentQuery] = useState(''); // Aktuelle Seite
+    const [itemsPerPage, setItemsPerPage] = useState(20); //Anzahl Elemnte pro Seite von der API
+    const handleChange = (event, value) => { 
+        setCurrentPage(value);
+      };
 
     useEffect(() => {
+        console.log(filter)
         // API-Request
-        fetch("https://rickandmortyapi.com/api/character/")
+        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}&name=${filter}`)
             .then((response) => {
                 //console.log("response:>>", response);
                 if (!response.ok){
@@ -42,6 +50,7 @@ function DataFetch( {filter} ) {
             })
             .then((data) => {
                 console.log("data:>>", data);   
+                setTotalPages(data.info.pages);
                 setData(data.results); //Daten in den State setzen
                 // setLoading(false); // Laden beenden
             })
@@ -53,7 +62,7 @@ function DataFetch( {filter} ) {
            
             //setLoading(false); // Laden beenden
             })
-    }, []) // Leeres Array für einmaliges Ausführen
+    }, [currentPage, currentQuery, filter]) // Leeres Array für einmaliges Ausführen
     
     
 
@@ -133,6 +142,12 @@ function DataFetch( {filter} ) {
                     ))}
                 </Grid>
             )}
+
+       
+            <Stack spacing={2} sx={{ marginTop: '30px', display: 'flex', justifyContent: 'center', textAlign:'center' }}>
+            <Pagination count={totalPages} variant="outlined" shape="rounded" onChange={handleChange}/>
+            </Stack>
+       
             </Container>
     );
 };

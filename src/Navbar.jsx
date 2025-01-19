@@ -6,7 +6,7 @@ import DataFetch from './Fetch/Fetch.jsx';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Fade from '@mui/material/Fade';
-import { Box, makeStyles } from '@mui/material';
+import { Box, InputAdornment, makeStyles } from '@mui/material';
 import { blueGrey, grey } from '@mui/material/colors';
 
 
@@ -24,15 +24,22 @@ const Navbar = ({ filter, onSearchChange }) => {
                   backgroundColor: '#e0e0e0',
                   margin: '10px',
                 }}>
-            <SearchIcon 
-              sx={{ alignSelf: 'flex-end',
-                    margin: '5px',
-                  }}>
-            </SearchIcon>
-
             <TextField id="filled-basic" label="Search by Name" variant="filled"
               value={filter} 
-              onChange={onSearchChange}>
+              onChange={onSearchChange}
+                 slotProps={{
+                    input: {
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <SearchIcon 
+                          sx={{ alignSelf: 'flex-end',
+                                margin: '5px',
+                              }}>
+                          </SearchIcon>
+                        </InputAdornment>
+                      ),
+                    },
+                  }}>
             </TextField>
 
           </Box>
